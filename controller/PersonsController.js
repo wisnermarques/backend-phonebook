@@ -62,8 +62,8 @@ const update = (request, response) => {
 const readById = (request, response) => {
   const id = Number(request.params.id);
   conn("tab_persons")
-    .select()
     .where({ id: id })
+    .first()
     .then((person) => {
       response.status(200).json(person);
     })
